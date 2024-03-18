@@ -1,0 +1,18 @@
+.heading{
+	padding: 100px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	vertical-align: middle;
+	background: radial-gradient(#fff,#ffd6d6);	
+	
+}
+.small-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.card-body{
+	text-align: center;
+}
+

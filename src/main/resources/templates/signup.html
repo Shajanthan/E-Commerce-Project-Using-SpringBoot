@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tune Trek</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!--Separate-->
+	<link rel="stylesheet" th:href="@{/css/login.css}" />
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	
+	
+</head>
+<body>
+	<div class="header1">
+		<div class="container1">
+			<div class="navbar1">
+				<div class="Name">
+					<h2>Tune Trek</h2>
+				</div>
+				<nav>
+					<ul id="menuItems">
+						<li><a th:href="@{/home}">Home</a></li>
+						<li><a class="active" th:href="@{/shop}">Shop</a></li>
+						<li><a th:href="@{/contact}">Contact</a></li>
+						<li><a th:href="@{/about}">About</a></li>
+					</ul>
+				</nav>
+				<img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+			</div>
+			
+		</div>
+	</div>
+	
+	<!--Content-->
+	<div class="body">	
+		<section>
+			<div class="form_Box" id="fbx">
+				<form th:action="@{/signup}" method="post" th:object="${registerRequest}" >
+					<h2>Signup</h2>
+					<div class="inputbox">
+						<ion-icon name="person-circle-outline"></ion-icon>
+						<input th:field="*{name}" type="text" name="name" required -->
+						<label for="name">Username</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="mail-outline"></ion-icon>
+						<input th:field="*{email}" type="email" name="email" required>
+						<label for="email">Email</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="lock-closed-outline"></ion-icon>
+						<input th:field="*{password}" type="password" id="password" name="password" required>
+						<label for="password">Password</label>
+					</div>
+					<div class="inputbox">
+						<ion-icon name="lock-closed-outline"></ion-icon>
+						<input type="password" id="confirmPassword" required>
+						<label for="confirmPassword">Confirm Password</label>
+					</div>
+					<button type="submit">Signup</button>
+					<div class="signup">
+						<a th:href="@{/login}">Have an account ? Login</a>
+					</div-->
+				</form>
+			</div>
+			<div th:if="${param.success}" class="success" id="suc">
+				<script>
+					document.getElementById("fbx").style.visibility = 'hidden';
+				</script>
+				<img src="/image/404-tick.png">
+				<h3>You've successfully Signup.. Login to Tune Trek</h3>
+				<a th:href="@{/login}"><button>OK</button></a>
+			</div>		
+		</section>
+		<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	</div>
+	
+	
+	<!---Footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Download Our App</h3>
+					<p>Download apps for Android and ios mobil phones.</p>
+					<div class="app-logo">
+						<img src="/image/play-store.png">
+						<img src="/image/app-store.png">
+					</div>
+				</div>
+				<div class="footer-col-2">
+					<h3>Useful Links</h3>
+					<ul>
+						<li>Coupons</li>
+						<li>Blog Post</li>
+						<li>Return Policy</li>
+						<li>Return Policy</li>
+					</ul>
+				</div>
+				<div class="footer-col-3">
+					<h3>Follow us</h3>
+					<ul>
+						<li>Facebook</li>
+						<li>Twitter</li>
+						<li>Instagram</li>
+						<li>Youtube</li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright">Copyright 2023 - Tune Trek</p>
+		</div>
+	</div>
+
+
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+	<script>
+		var password = document.getElementById("password");
+		var confirmPassword = document.getElementById("confirmPassword");
+	
+		function validatePassword(){
+	  		if(password.value != confirmPassword.value) {
+	    		confirmPassword.setCustomValidity("Passwords did not Match");
+	  		}else {
+	    		confirmPassword.setCustomValidity('');
+	 		}
+		}	
+		password.onchange = validatePassword;
+		confirmPassword.onkeyup = validatePassword;
+	</script>
+	
+	
+	<script>
+		var menuItems=document.getElementById("menuItems");
+		menuItems.style.maxHeight="0px";
+		function menutoggle() {
+			if (menuItems.style.maxHeight=="0px") {
+				menuItems.style.maxHeight="200px"
+			} 
+			else {
+				menuItems.style.maxHeight="0px"
+			}
+		}
+	</script>
+	
+</body>
+</html>

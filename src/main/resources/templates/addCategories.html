@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tune Trek Admin</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!--Separate-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+	<style>
+		.inputbox{
+			margin-bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="header1">
+		<div class="container1">
+			<div class="navbar1">
+				<div class="Name">
+					<h2>Tune Trek Admin</h2>
+				</div>
+				<nav>
+					<ul id="menuItems">
+						<li><a href="#" th:href="@{/admin}">Home</a></li>
+						<li><a th:href="@{/logout}">Logout</a></li>
+					</ul>
+				</nav>
+				<img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+				
+			</div>
+
+		</div>
+	</div>
+	
+	
+	
+	<div class="body">
+		<section>
+			<div class="form_Box" id="fbx">
+				<form th:action="@{/admin/categories/add}" method="post" th:object="${category}">
+					<h2> Add Category </h2>
+					<input type="hidden" name="id"  th:field="*{id}">
+		            <div class="tab">
+		            	<div class="inputbox">
+							<input type="text" th:field="*{name}" name="name" required />
+							<label for="category">Name</label> 
+						</div>
+		            </div>
+					<button type="submit" class="btn">Submit</button>
+				</form>
+			</div>	
+		</section>
+	</div>
+	
+	
+	
+	<script>
+		var menuItems=document.getElementById("menuItems");
+		menuItems.style.maxHeight="0px";
+		function menutoggle() {
+			if (menuItems.style.maxHeight=="0px") {
+				menuItems.style.maxHeight="200px"
+			} 
+			else {
+				menuItems.style.maxHeight="0px"
+			}
+		}
+	</script>
+</body>
+</html>

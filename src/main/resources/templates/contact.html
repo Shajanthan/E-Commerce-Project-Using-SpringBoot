@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tune Trek</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+	<!--Separate-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/contact.css}">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>	
+</head>
+<body>
+	<div class="header1">
+		<div class="container1">
+			<div class="navbar1">
+				<div class="Name">
+					<h2>Tune Trek</h2>
+				</div>
+				<nav>
+					<ul id="menuItems">
+						<li><a th:href="@{/home}">Home</a></li>
+						<li><a th:href="@{/shop}">Shop</a></li>
+						<li><a class="active" th:href="@{/contact}">Contact</a></li>
+						<li><a th:href="@{/about}">About</a></li>
+						<li><a th:href="@{/cart}"><i class='bx bxs-cart' style="color: black;font-size: 23px;"></i>(<span th:text="${cartCount}"></span>)</a></li>
+					</ul>
+				</nav>
+								
+			<div class="dropdown">
+				<button class="dropbtn"><i class='bx bxs-user-circle' style='color:black;font-size: 23px;'></i><div sec:authorize="isAuthenticated()" th:text="${#authentication.name}"></div><div sec:authorize="!isAuthenticated()">Account</div></button>
+				<div class="dropdown-content">
+					<div sec:authorize="!isAuthenticated()">
+						<li><a th:href="@{/signup}">Signup</a></li>
+					</div>
+					<div sec:authorize="!isAuthenticated()">
+						<li><a th:href="@{/login}">Login</a></li>
+					</div>
+					<div sec:authorize="isAuthenticated()">
+  						<li><a th:href="@{/logout}">Logout</a></li>
+					</div>
+					<div sec:authorize="isAuthenticated()">
+  						<li><a th:href="@{/admin}">Admin</a></li>
+					</div>
+				</div>
+			</div>
+			<img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+			</div>
+	</div>
+	<div class="small-container">
+		<h2 class="title">Have you any question?</h2>
+		<div class="con">
+			<div class="co1">
+				<p>To connect with our music instrument store, feel free to reach out to us below We're eager to assist you with all your musical needs!</p>
+				<form>
+					<div class="formm">
+						<div class="inputbox">
+							<input type="text" name="name" placeholder="Name" required>
+						</div>
+						<div class="inputbox">
+							<input type="email" name="email" placeholder="Email" required>
+						</div>
+					</div>
+					<div class="formm">
+						<div class="inputbox">
+							<input type="text" name="name" placeholder="Phone" required>
+						</div>
+						<div class="inputbox">
+							<input type="text" name="email" placeholder="Subject" required>
+						</div>
+					</div>
+					<div class="textarea">
+						<label>Message</label>
+						<textarea rows="8" placeholder="Message"></textarea>
+					</div>
+					<center><button type="submit" class="submit" style="width: 250px; margin: 15px 0px;">Submit</button></center>
+					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	<!---Footer-->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Download Our App</h3>
+					<p>Download apps for Android and ios mobil phones.</p>
+					<div class="app-logo">
+						<img src="/image/play-store.png">
+						<img src="/image/app-store.png">
+					</div>
+				</div>
+				<div class="footer-col-2">
+					<h3>Useful Links</h3>
+					<ul>
+						<li>Coupons</li>
+						<li>Blog Post</li>
+						<li>Return Policy</li>
+						<li>Return Policy</li>
+					</ul>
+				</div>
+				<div class="footer-col-3">
+					<h3>Follow us</h3>
+					<ul>
+						<li>Facebook</li>
+						<li>Twitter</li>
+						<li>Instagram</li>
+						<li>Youtube</li>
+					</ul>
+				</div>
+				<div class="footer-col-4">
+					<h3>Quick Menu</h3>
+					<ul>
+						<li><a th:href="@{/home}">Home</a></li>
+						<li><a th:href="@{/shop}">Shop</a></li>
+						<li><a th:href="@{/contact}">Contact</a></li>
+						<li><a th:href="@{/about}">About</a></li>
+						<li><a th:href="@{/cart}">Cart</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright">Copyright 2023 - Tune Trek</p>
+		</div>
+	</div>
+
+
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+	<script>
+		var menuItems=document.getElementById("menuItems");
+		menuItems.style.maxHeight="0px";
+		function menutoggle() {
+			if (menuItems.style.maxHeight=="0px") {
+				menuItems.style.maxHeight="200px"
+			} 
+			else {
+				menuItems.style.maxHeight="0px"
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+.stuff{
+	background-color: white;
+}
+
+.contacta{
+	background-image: url("/image/aboutus2.jpg");
+	color: white;
+	background-size: 100% 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	max-width: 1360px;
+	height: fit-content;
+	padding: 10% 30% 10% 2%;
+	margin: auto;
+	text-align:center;
+	justify-content: center;
+}
+
+
+.col-8{
+	background-color: #f57920;
+	background: transparent;
+	border-radius: 42px;
+	padding: 30px;
+}
+
+
+small{
+	color: white;
+}
+
+.ae{
+	background-color:black;
+	border-radius: 25px;
+}

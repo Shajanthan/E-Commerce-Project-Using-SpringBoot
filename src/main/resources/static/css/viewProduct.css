@@ -1,0 +1,119 @@
+.shop-card {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 380px;
+  background: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  z-index: 2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+.shop-card figure {
+  margin: 0;
+  padding: 0;
+  height: 250px;
+  overflow: hidden;
+}
+.shop-card figure img {
+	height: 100%;
+  	width: 100%;
+}
+.shop-card .title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #23211f;
+  margin-bottom: 5px;
+}
+.shop-card .desc {
+  font-size: 17px;
+  opacity: .8;
+  margin-bottom: 3px;
+}
+.shop-card .cta {
+  padding: 20px 20px 5px;
+}
+.shop-card .cta::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.shop-card .price {
+	margin-left: 5px;
+  color: black;
+  font-size: 15px;
+  font-weight: 900;
+  padding-top: 2px;
+  margin-top: 4px;
+}
+
+.a{
+	margin-right: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+.r{
+	color: red;
+}
+.shop-card .qty {
+	display: flex;
+	width: 100%;
+  color: black;
+  font-size: 15px;
+  font-weight: 900;
+  padding-top: 2px;
+  margin-top: 4px;
+}
+.qty input{
+	width:40px;	
+	border: none;
+	border-bottom: 1px solid lightgray;
+}
+.buttons{
+	display: flex;
+}
+.shop-card .cartbtn {
+	margin-top: 5px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #FF3100;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  line-height: .95;
+  border: none;
+  background: none;
+  outline: none;
+  border: 1px solid #FF3100;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 45%;
+  margin: 10px 8px 0px 8px;
+}
+
+.buttons a{
+	color: #FF3100;
+}
+
+.buttons a:hover{
+	background-color:  #ff523b;;
+    color: white;
+}
+
+.bodyy{
+			background: radial-gradient(#fff,#ffd6d6);
+			padding: 20px 0px;
+		}

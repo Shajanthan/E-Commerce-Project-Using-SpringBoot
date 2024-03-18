@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tune Trek Admin</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!--Separate-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/products.css}">
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+	<div class="header1">
+		<div class="container1">
+			<div class="navbar1">
+				<div class="Name">
+					<h2>Tune Trek Admin</h2>
+				</div>
+				<nav>
+					<ul id="menuItems">
+						<li><a href="#" th:href="@{/admin}">Home</a></li>
+						<li><a th:href="@{/logout}">Logout</a></li>
+					</ul>
+				</nav>
+				<img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+				
+			</div>
+
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="but">
+	    <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn">Add Products</a>
+	    </div>
+	    <div class="tablerow">
+		    <table class="table">
+		        <tr>
+		            <th scope="col">ID</th>
+            		<th scope="col">Product Name</th>
+            		<th scope="col">Category</th>
+            		<th scope="col">Quantity</th>
+            		<th scope="col">Preview</th>
+            		<th scope="col">Delete</th>
+            		<th scope="col">Update</th>
+		        </tr>	
+		        <tr th:each="product, iStat : ${products}">
+		            <th scope="row" th:text="${iStat.index + 1}"></th>
+		            <td th:text="${product.name}"></td>
+		            <td th:text="${product.category.name}"></td>
+		            <td th:text="${product.qty}"></td>
+		            <td><img src="" height="100px" width="100px"  th:src="@{${'/productImages/' + product.imageName}}"></td>
+		
+		            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btnd">Delete</a></td>
+		            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btnw">Update</a></td>
+        		</tr>
+		    </table>
+		</div>
+	</div>
+	<script>
+		var menuItems=document.getElementById("menuItems");
+		menuItems.style.maxHeight="0px";
+		function menutoggle() {
+			if (menuItems.style.maxHeight=="0px") {
+				menuItems.style.maxHeight="200px"
+			} 
+			else {
+				menuItems.style.maxHeight="0px"
+			}
+		}
+	</script>
+</body>
+</html>

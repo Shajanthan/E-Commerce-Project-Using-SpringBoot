@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tune Trek</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!--Separate-->
+	<link rel="stylesheet" th:href="@{/css/viewProduct.css}" />
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+	<div class="header1">
+		<div class="container1">
+			<div class="navbar1">
+				<div class="Name">
+					<h2>Tune Trek</h2>
+				</div>
+				<nav>
+					<ul id="menuItems">
+						<li><a href="\home">Home</a></li>
+						<li><a href="\shop">Shop</a></li>
+						<li><a href="\contact">Contact</a></li>
+						<li><a href="\about">About</a></li>
+						<li><a th:href="@{/cart}"><i class='bx bxs-cart' style="color: black;font-size: 23px;"></i>(<span th:text="${cartCount}"></span>)</a></li>
+					</ul>
+				</nav>
+								
+			<div class="dropdown">
+				<button class="dropbtn"><i class='bx bxs-user-circle' style='color:black;font-size: 23px;'></i><div sec:authorize="isAuthenticated()" th:text="${#authentication.name}"></div><div sec:authorize="!isAuthenticated()">Account</div></button>
+				<div class="dropdown-content">
+					<div sec:authorize="!isAuthenticated()">
+						<li><a th:href="@{/signup}">Signup</a></li>
+					</div>
+					<div sec:authorize="!isAuthenticated()">
+						<li><a th:href="@{/login}">Login</a></li>
+					</div>
+					<div sec:authorize="isAuthenticated()">
+  						<li><a th:href="@{/logout}">Logout</a></li>
+					</div>
+					<div sec:authorize="isAuthenticated()">
+  						<li><a th:href="@{/admin}">Admin</a></li>
+					</div>
+				</div>
+			</div>
+			<img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+			</div>
+		</div>
+	</div>
+	<div class="bodyy">
+	<div class="shop-card">
+		<form th:action="@{/admin/products/add}" method="post" th:object="${cart}">
+		    <div class="title" th:text="${product.name}">
+		    </div>
+		    <div class="desc" th:text="${product.category.name}">
+		    </div>
+		    <div class="slider">
+		      <figure>
+		        <img src="" th:src="@{${'/ProductImages/' + product.imageName}}"/>
+		      </figure>
+		    </div>
+		  
+		    <div class="cta">
+			    <div class="price">Rs <span th:text="${product.price}"></span></div>
+			    <div class="qty">
+					<div class="a">Available Items <span class="r" th:text="${product.qty}"></span></div>
+				</div>
+				<div class="buttons">
+			    	<a th:href="@{/addToCart/{id}(id = ${product.id})}" class="cartbtn" style="width: 100%;">Add to cart or buy</a>
+		    	</div>
+		    </div>
+		 </form>
+	</div>
+	
+	</div>
+	
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col-1">
+					<h3>Download Our App</h3>
+					<p>Download apps for Android and ios mobil phones.</p>
+					<div class="app-logo">
+						<img src="/image/play-store.png">
+						<img src="/image/app-store.png">
+					</div>
+				</div>
+				<div class="footer-col-2">
+					<h3>Useful Links</h3>
+					<ul>
+						<li>Coupons</li>
+						<li>Blog Post</li>
+						<li>Return Policy</li>
+						<li>Return Policy</li>
+					</ul>
+				</div>
+				<div class="footer-col-3">
+					<h3>Follow us</h3>
+					<ul>
+						<li>Facebook</li>
+						<li>Twitter</li>
+						<li>Instagram</li>
+						<li>Youtube</li>
+					</ul>
+				</div>
+				<div class="footer-col-4">
+					<h3>Quick Menu</h3>
+					<ul>
+						<li><a href="\home">Home</a></li>
+						<li><a href="\shop">Shop</a></li>
+						<li><a href="\contact">Contact</a></li>
+						<li><a href="\about">About</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<p class="copyright">Copyright 2023 - Tune Trek</p>
+		</div>
+	</div>
+	
+	
+	<script>
+		var menuItems=document.getElementById("menuItems");
+		menuItems.style.maxHeight="0px";
+		function menutoggle() {
+			if (menuItems.style.maxHeight=="0px") {
+				menuItems.style.maxHeight="200px"
+			} 
+			else {
+				menuItems.style.maxHeight="0px"
+			}
+		}
+	</script>
+	
+</body>
+</html>

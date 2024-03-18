@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tune Trek Admin</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!--Separate-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/categories.css}">
+
+</head>
+<body>
+	<div class="header1">
+		<div class="container1">
+			<div class="navbar1">
+				<div class="Name">
+					<h2>Tune Trek Admin</h2>
+				</div>
+				<nav>
+					<ul id="menuItems">
+						<li><a href="#" th:href="@{/admin}">Home</a></li>
+						<li><a th:href="@{/logout}">Logout</a></li>
+					</ul>
+				</nav>
+				<img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+				
+			</div>
+
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="but">
+	    <a th:href="@{/admin/categories/add}" style="margin: 20px 0" class="btn">Add Category</a>
+	    </div>
+	    <div class="tablerow">
+		    <table class="table">
+		        <tr>
+		            <th class="col">ID</th>
+		            <th class="col">Category Name</th>
+		            <th class="col">Delete</th>
+		            <th class="col">Update</th>
+		        </tr>
+		        </thead>		
+		        <tr th:each="category, iStat : ${categories}">
+		            <td scope="row" th:text="${iStat.index + 1}">1</td>
+		            <td th:text="${category.name}">Larry</td>
+		
+		            <td><a href="" th:href="@{/admin/categories/delete/{id}(id=${category.id})}" class="btnd">Delete</a></td>
+		            <td><a href="" th:href="@{/admin/categories/update/{id}(id=${category.id})}" class="btnw">Update</a></td>
+		        </tr>
+		    </table>
+		</div>
+	</div>
+	<script>
+		var menuItems=document.getElementById("menuItems");
+		menuItems.style.maxHeight="0px";
+		function menutoggle() {
+			if (menuItems.style.maxHeight=="0px") {
+				menuItems.style.maxHeight="200px"
+			} 
+			else {
+				menuItems.style.maxHeight="0px"
+			}
+		}
+	</script>
+</body>
+</html>

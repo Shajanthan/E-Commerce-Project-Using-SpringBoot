@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tune Trek Admin</title>
+	<link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<!--Separate-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}">
+</head>
+<body>
+	<div class="header1">
+		<div class="container1">
+			<div class="navbar1">
+				<div class="Name">
+					<h2>Tune Trek Admin</h2>
+				</div>
+				<nav>
+					<ul id="menuItems">
+						<li><a th:href="@{/home}">TuneTrek</a></li>
+						<li><a th:href="@{/admin}">Home</a></li>
+						<li><a th:href="@{/logout}">Logout</a></li>
+					</ul>
+				</nav>
+				<img src="/image/menu.png" class="menu-icon" onclick="menutoggle()">
+			</div>
+
+		</div>
+	</div>
+	<div class="heading">
+		<h1>Welcome back, Admin</h1>
+   		<p>Easily manage your data</p>
+	</div>>
+	
+	<div class="body">
+	    <div class="small-container">
+	        <div class="row" >
+	            <div class="card">
+	                <div class="card-body">
+	                    <h2>Categories</h2>
+	                    <p class="card-text">Manage the categories section here.</p>
+	                    <a href="#" th:href="@{/admin/categories}" class="card-link btn btn-primary">Manage</a>
+	
+	                </div>
+	            </div>
+	        </div>
+	        <div class="row" >
+	            <div class="card">
+	                <div class="card-body">
+	                    <h2 class="card-title">Products</h4>
+	                    <p class="card-text">Manage all the products here.</p>
+	                    <a href="#" th:href="@{/admin/products}" class="card-link btn btn-primary">Manage</a>
+	
+	                </div>
+	            </div>
+	        </div>
+	        <div class="row" >
+	            <div class="card">
+	                <div class="card-body">
+	                    <h2>Order Confirmation</h2>
+	                    <p class="card-text">Manage the customer order section here.</p>
+	                    <a href="#" th:href="@{/admin/categories}" class="card-link btn btn-primary">Manage</a>
+	
+	                </div>
+	            </div>
+	        </div>
+			
+	    </div>
+	</div>
+	<script>
+		var menuItems=document.getElementById("menuItems");
+		menuItems.style.maxHeight="0px";
+		function menutoggle() {
+			if (menuItems.style.maxHeight=="0px") {
+				menuItems.style.maxHeight="200px"
+			} 
+			else {
+				menuItems.style.maxHeight="0px"
+			}
+		}
+	</script>
+	
+	
+</body>
+</html>
